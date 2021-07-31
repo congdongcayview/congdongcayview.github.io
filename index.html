@@ -9,7 +9,8 @@
  
  <script src="https://apis.google.com/js/platform.js" ></script>
  
-    <script>
+    <script> 
+
         var videos = ["QYBcXnvgL60",
          "RuLlcf-aWlM",
      "c8reOPSa3rQ",
@@ -20,7 +21,21 @@
 "uQj-D-NXOxc"
     ];
 
-     
+   //  alert(window.location.href);
+     var url_string = window.location.href;
+
+     if(url_string.indexOf("?")>0){ 
+     var url = new URL(url_string);
+var c = url.searchParams.get("id");
+
+//alert(c);
+var listvideo = c.split(",").filter(n => n);
+// alert(listvideo);
+if(listvideo.length>0){
+    videos = listvideo;
+}
+     }
+
         window.onload = function () {  
        
             var playerDiv = document.getElementById("random_player");
@@ -38,12 +53,7 @@
 
     
     <div id="random_player" /> 
-     
-    <input type="file" name="inputfile"
-            id="inputfile"  >
-    <br>
-   
-    <pre id="output"></pre>
+<!--  
       
     <script type="text/javascript">
         document.getElementById('inputfile')
@@ -57,7 +67,7 @@
               
             fr.readAsText(this.files[0]);
         })
-    </script>
+    </script> -->
 </body>
   
 </body>
