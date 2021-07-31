@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+ <script src="https://apis.google.com/js/platform.js" ></script>
+ 
+    <script>
+        var videos = ["QYBcXnvgL60",
+         "RuLlcf-aWlM",
+     "c8reOPSa3rQ",
+"fS_idUCsifg",
+"0VKE5rePOM0",
+"RH6cRohbsYI",
+"a5_hQy8hD8A",
+"uQj-D-NXOxc"
+    ];
+        window.onload = function () { 
+            var playerDiv = document.getElementById("random_player");
+            var player = document.createElement("IFRAME");
+            var randomVideoUrl = videos[Math.floor(Math.random() * videos.length)];
+            player.setAttribute('width', '640');
+            player.setAttribute('height', '390');
+            player.setAttribute('src', "https://www.youtube.com/embed/"+randomVideoUrl); 
+            playerDiv.appendChild(player);
+        };
+    </script>
+</head>
+
+<body>
+    <div id="random_player" /> 
+     
+    <input type="file" name="inputfile"
+            id="inputfile" value="D:\listvideo\listvideo.txt" >
+    <br>
+   
+    <pre id="output"></pre>
+      
+    <script type="text/javascript">
+        document.getElementById('inputfile')
+            .addEventListener('change', function() {
+              
+            var fr=new FileReader();
+            fr.onload=function(){
+                document.getElementById('output')
+                        .textContent=fr.result;
+            }
+              alert(this.files[0].name)
+            fr.readAsText(this.files[0]);
+        })
+    </script>
+</body>
+  
+</body>
+ 
+
+
+
+</html>
