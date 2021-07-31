@@ -19,16 +19,10 @@
 "a5_hQy8hD8A",
 "uQj-D-NXOxc"
     ];
-        window.onload = function () { 
-            var txt = '';
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function(){
-  if(xmlhttp.status == 200 && xmlhttp.readyState == 4){
-    txt = xmlhttp.responseText;
-  }
-};
-xmlhttp.open("GET","C:\\Users\\Admin\\Desktop\\63pc.txt",true);
-xmlhttp.send();
+
+     
+        window.onload = function () {  
+       
             var playerDiv = document.getElementById("random_player");
             var player = document.createElement("IFRAME");
             var randomVideoUrl = videos[Math.floor(Math.random() * videos.length)];
@@ -41,6 +35,8 @@ xmlhttp.send();
 </head>
 
 <body>
+
+    
     <div id="random_player" /> 
      
     <input type="file" name="inputfile"
