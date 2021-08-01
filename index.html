@@ -34,13 +34,13 @@ if(listvideo.length>0){
 }
      }
 
-        window.onload = function () { 
+        window.onload = function () {  
             var playerDiv = document.getElementById("random_player");
             var player = document.createElement("IFRAME");
             var randomVideoUrl = videos[Math.floor(Math.random() * videos.length)];
             player.setAttribute('width', '100%');
             player.setAttribute('height', '400');
-            var linkembed= "https://www.youtube.com/embed/"+randomVideoUrl+"?autoplay=1";
+            var linkembed= "https://www.youtube.com/embed/"+randomVideoUrl+"?autoplay=1&rel=0 ";
             player.setAttribute('src',linkembed ); 
             player.setAttribute('frameborder', '0');
             player.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
@@ -74,11 +74,11 @@ div#ytbutton {
     <br>
     <p>Chọn file chứa link video</p>
     <input type="file" name="inputfile"
-    id="inputfile"> 
-    <input type="text" value="Vui lòng chọn file" id="myInput" >
+    id="inputfile" > 
+    <input type="text" value="Vui lòng chọn tệp " id="myInput" >
 
 <!-- The button used to copy the text -->
-<button onclick="myFunction()">Copy link</button>
+<button class="btn btn-dark"  onclick="myFunction()"  >Copy link</button>
 <br>
     
     <div id="random_player"  /> 
@@ -117,8 +117,7 @@ listIDGen.push(c);
 
 var result = window.location.origin;
 var linkfinal= result+"/index.html?id="+listIDGen; 
-document.querySelector("#myInput").value = linkfinal;
-
+document.querySelector("#myInput").value = linkfinal; 
 
     }
         fr.readAsText(this.files[0]);
