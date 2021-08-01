@@ -43,24 +43,37 @@ if(listvideo.length>0){
             var linkembed= "https://www.youtube.com/embed/"+randomVideoUrl+"?autoplay=1";
             player.setAttribute('src',linkembed ); 
             player.setAttribute('frameborder', '0');
-           player.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+            player.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
             player.setAttribute('allowfullscreen', 'allowfullscreen'); 
             playerDiv.appendChild(player);
         };
     </script>
+
+
+<style>
+div#ytbutton { 
+    display: inline-block;
+    margin-left: 50%;
+}
+
+</style>
 </head>
 
 <body>
-
+    <br>
+    <p>Chọn file chứa link video</p>
+    <input type="file" name="inputfile"
+    id="inputfile"> 
+<br>
     
     <div id="random_player"  /> 
 
-    
+    <br>
 <div id="ytbutton">
     <script src="https://apis.google.com/js/platform.js"></script>
     <div class="g-ytsubscribe" data-channelid="UCgKLACVMxNcijmudfwOu_9A" data-layout="full" data-count="default"></div>
 </div>
-
+<br>
 <!--  
       
     <script type="text/javascript">
