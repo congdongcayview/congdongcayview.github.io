@@ -47,6 +47,17 @@ if(listvideo.length>0){
             player.setAttribute('allowfullscreen', 'allowfullscreen'); 
             playerDiv.appendChild(player);
         };
+
+
+
+
+        function myFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+ // alert("Copied the text: " + copyText.value);
+}
     </script>
 
 
@@ -64,6 +75,10 @@ div#ytbutton {
     <p>Chọn file chứa link video</p>
     <input type="file" name="inputfile"
     id="inputfile"> 
+    <input type="text" value="Vui lòng chọn file" id="myInput" >
+
+<!-- The button used to copy the text -->
+<button onclick="myFunction()">Copy link</button>
 <br>
     
     <div id="random_player"  /> 
@@ -74,21 +89,43 @@ div#ytbutton {
     <div class="g-ytsubscribe" data-channelid="UCgKLACVMxNcijmudfwOu_9A" data-layout="full" data-count="default"></div>
 </div>
 <br>
-<!--  
+  
       
     <script type="text/javascript">
+
+     var listlinkvideo=[];
         document.getElementById('inputfile')
             .addEventListener('change', function() {
               
             var fr=new FileReader();
+            var listIDGen=[];
             fr.onload=function(){
-                document.getElementById('output')
-                        .textContent=fr.result;
-            }
-              
-            fr.readAsText(this.files[0]);
-        })
-    </script> --> 
+               var listlinkvideostr=fr.result;
+            //  alert(listlinkvideostr); 
+              listlinkvideo =listlinkvideostr.split("\n");
+              listlinkvideo.forEach(function(item){
+
+if(item.indexOf("?")>0){ 
+var url = new URL(item);
+var c = url.searchParams.get("v");
+listIDGen.push(c);
+} 
+
+});
+   
+//alert(listIDGen);
+
+var result = window.location.origin;
+var linkfinal= result+"/index.html?id="+listIDGen; 
+document.querySelector("#myInput").value = linkfinal;
+
+
+    }
+        fr.readAsText(this.files[0]);
+
+    
+    });
+    </script>   
 </body>
  
 
