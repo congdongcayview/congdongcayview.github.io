@@ -6,9 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
- 
- <script src="https://apis.google.com/js/platform.js" ></script>
- 
+    
     <script> 
 
         var videos = ["QYBcXnvgL60",
@@ -36,14 +34,17 @@ if(listvideo.length>0){
 }
      }
 
-        window.onload = function () {  
-       
+        window.onload = function () { 
             var playerDiv = document.getElementById("random_player");
             var player = document.createElement("IFRAME");
             var randomVideoUrl = videos[Math.floor(Math.random() * videos.length)];
             player.setAttribute('width', '100%');
             player.setAttribute('height', '400');
-            player.setAttribute('src', "https://www.youtube.com/embed/"+randomVideoUrl); 
+            var linkembed= "https://www.youtube.com/embed/"+randomVideoUrl+"?autoplay=1";
+            player.setAttribute('src',linkembed ); 
+            player.setAttribute('frameborder', '0');
+           player.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+            player.setAttribute('allowfullscreen', 'allowfullscreen'); 
             playerDiv.appendChild(player);
         };
     </script>
@@ -53,6 +54,13 @@ if(listvideo.length>0){
 
     
     <div id="random_player"  /> 
+
+    
+<div id="ytbutton">
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <div class="g-ytsubscribe" data-channelid="UCgKLACVMxNcijmudfwOu_9A" data-layout="full" data-count="default"></div>
+</div>
+
 <!--  
       
     <script type="text/javascript">
@@ -67,9 +75,7 @@ if(listvideo.length>0){
               
             fr.readAsText(this.files[0]);
         })
-    </script> -->
-</body>
-  
+    </script> --> 
 </body>
  
 
