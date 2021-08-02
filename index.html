@@ -55,7 +55,7 @@ if(listvideo.length>0){
 <script>
     $(document).ready(function(){
         $.getJSON("https://lumtest.com/myip.json", function(result){  
-            var kq= "IP: "+result.ip +"--------- Country: "+result.country + " --------- City: "+ result.geo.city
+            var kq= "IP: "+result.ip +"--------- Com: "+result.asn.org_name + " --------- City: "+ result.geo.tz
             $("h1").append(kq);
             
       
